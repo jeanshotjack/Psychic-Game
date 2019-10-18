@@ -1,7 +1,7 @@
 var win = 0;
 var loss = 0;
 var lives = 8;
-var guess = [];
+var guess = [""];
 
 var letter = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
@@ -20,6 +20,10 @@ document.onkeypress = function(event) {
     else {
         lives--;
         document.getElementById("lives").innerHTML = + lives;
+        var wrong = guess.push(event.key);
+        document.getElementById("guess").innerHTML = + guess;
+        wrong.textContent = guess.join("");
+        
     }
 }
 // AND ATTEMPT POINTS
