@@ -15,24 +15,24 @@ document.onkeypress = function(event) {
 // Need to test guesses then add win/loss points
     if(user === computer) {
         win++;
-        document.getElementById("win").innerHTML = + win;
+        document.getElementById("win").innerHTML = "Wins: " + win;
     }
     else {
         lives--;
-        document.getElementById("lives").innerHTML = + lives;
+        document.getElementById("lives").innerHTML = "Lives: " + lives;
         var wrong = guess.push(event.key);
-        document.getElementById("guess").innerHTML = + guess;
+        document.getElementById("guess").innerHTML = "Guesses left: " + guess;
         wrong.textContent = guess.join("");
-        
+    }
+    if(lives === 0) {
+        loss++;
+        document.getElementById("loss").innerHTML ="Losses: " + loss;
+        lives.reset("lives");
     }
 }
 // AND ATTEMPT POINTS
 
-if(lives === 0) {
-    loss++;
-    document.getElementById("loss").innerHTML = + loss;
-    document.getElementById("lives").reset();
-}
+
 //AND GET GAME TO STOP SOMEHOW
 // if statement around it?
 // and get it to put guesses in the empty guess array?
