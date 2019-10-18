@@ -9,9 +9,23 @@ var computer = letter[Math.floor(Math.random() * letter.length)];
 console.log(computer);
 
 // Need to get it to read the key person presses
-// Need to test guesses 
-// then add win/loss points
+document.onkeypress = function(event) {
+    user = event.key;
+
+// Need to test guesses then add win/loss points
+    if(user === computer) {
+        win++;
+    }
+    else {
+        lives--;
+    }
+}
 // AND ATTEMPT POINTS
+
+if(lives === 0) {
+    loss++;
+    document.getElementById("lives").reset();
+}
 //AND GET GAME TO STOP SOMEHOW
 // if statement around it?
 // and get it to put guesses in the empty guess array?
@@ -20,4 +34,3 @@ console.log(computer);
 document.getElementById("win").innerHTML = + win;
 document.getElementById("loss").innerHTML = + loss;
 document.getElementById("lives").innerHTML = + lives;
-document.getElementById("guess").innerHTML = + guess;
