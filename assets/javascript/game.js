@@ -1,13 +1,14 @@
 var win = 0;
 var loss = 0;
 var lives = 8;
-var guess = [""];
+var guess = [];
 
 var letter = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
 var computer = letter[Math.floor(Math.random() * letter.length)];
 console.log(computer);
 
+for (i = 0; i < lives.length; i++) {
 // Need to get it to read the key person presses
 document.onkeypress = function(event) {
     user = event.key;
@@ -19,16 +20,18 @@ document.onkeypress = function(event) {
     }
     else {
         lives--;
-        document.getElementById("lives").innerHTML = "Lives: " + lives;
+        document.getElementById("lives").innerHTML = "Lives left: " + lives;
         var wrong = guess.push(event.key);
-        document.getElementById("guess").innerHTML = "Guesses left: " + guess;
+        document.getElementById("guess").innerHTML = "Letters you have guessed: " + guess;
         wrong.textContent = guess.join("");
     }
     if(lives === 0) {
         loss++;
         document.getElementById("loss").innerHTML ="Losses: " + loss;
-        lives.reset("lives");
+        var computer = letter[Math.floor(Math.random() * letter.length)];
+        console.log(computer);
     }
+}
 }
 // AND ATTEMPT POINTS
 
