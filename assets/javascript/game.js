@@ -12,29 +12,31 @@ console.log(computer);
 // Need to get it to read the key person presses
 document.onkeypress = function (event) {
     user = event.key;
-
+   
+    for (lives = 0; lives < 8; lives++) {
     // Need to test guesses then add win/loss points
     if (user === computer) {
         win++;
         document.getElementById("win").innerHTML = "Wins: " + win;
     }
 
-    else if (lives === 0) {
-        loss++;
-        document.getElementById("loss").innerHTML = "Losses: " + loss;
+    else if (user !== computer) {
+        lives--;
+        document.getElementById("lives").innerHTML = "Lives left: " + lives;
         var wrong = guess.push(event.key);
         document.getElementById("guess").innerHTML = "Letters you have guessed: " + guess;
         wrong.textContent = guess.join("");
+    }
+    }
+    if (lives === 0) {
+        loss++;
+        document.getElementById("loss").innerHTML = "Losses: " + loss;
         var computer = letter[Math.floor(Math.random() * letter.length)];
         console.log(computer);
-        }
-
-    else {
-        lives--;
-        document.getElementById("lives").innerHTML = "Lives left: " + lives;
     }
     
 }
+
 
 
 // AND ATTEMPT POINTS
