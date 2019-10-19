@@ -8,18 +8,20 @@ var letter = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "
 var computer = letter[Math.floor(Math.random() * letter.length)];
 console.log(computer);
 
-
-// Need to get it to read the key person presses
+// when you press the key it logs a key
 document.onkeypress = function (event) {
     user = event.key;
 
+// we all die you either kill yourself or get killed
     if (lives > 0) {
         if (user === computer) {
             win++;
             document.getElementById("win").innerHTML = "Wins: " + win;
             computer = letter[Math.floor(Math.random() * letter.length)];
+            console.log(computer);
         }
 
+        // what you gonna do
         else if (user !== computer) {
             lives--;
             document.getElementById("lives").innerHTML = "Lives left: " + lives;
@@ -28,26 +30,19 @@ document.onkeypress = function (event) {
             wrong.textContent = guess.join("");
         }
     }
-        else if (lives <= 0) {
+
+    // what you gonna do 
+    else if (lives <= 0) {
         loss++;
         document.getElementById("loss").innerHTML = "Losses: " + loss;
-        lives =8;
+        lives = 8;
         computer = letter[Math.floor(Math.random() * letter.length)];
+        console.log(computer);
     }
-
 }
 
-// bRO WHY DIESNT THIS SHIT WORKN 
+// don't ask how this works it just does 
 
-
-
-// AND ATTEMPT POINTS
-
-
-//AND GET GAME TO STOP SOMEHOW
-// if statement around it?
-// and get it to put guesses in the empty guess array?
-// aaaaaaaaaaaaaaaaaaaa
 
 
 
