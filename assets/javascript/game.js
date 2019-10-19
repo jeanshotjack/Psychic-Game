@@ -13,13 +13,11 @@ console.log(computer);
 document.onkeypress = function (event) {
     user = event.key;
 
-    function(justPleaseWork) { //THE FUFCK DO YOU PUT HERE TO MAKE IT WORK
-        // Need to test guesses then add win/loss points
+    if (lives > 0) {
         if (user === computer) {
             win++;
             document.getElementById("win").innerHTML = "Wins: " + win;
             computer = letter[Math.floor(Math.random() * letter.length)];
-            console.log(computer);
         }
 
         else if (user !== computer) {
@@ -29,12 +27,12 @@ document.onkeypress = function (event) {
             document.getElementById("guess").innerHTML = "Letters you have guessed: " + guess;
             wrong.textContent = guess.join("");
         }
-}
-        if (lives === 0) {
+    }
+        else if (lives <= 0) {
         loss++;
         document.getElementById("loss").innerHTML = "Losses: " + loss;
+        lives =8;
         computer = letter[Math.floor(Math.random() * letter.length)];
-        console.log(computer);
     }
 
 }
